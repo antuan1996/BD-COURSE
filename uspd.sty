@@ -3,6 +3,9 @@
 \usepackage{rotating}
 \usepackage{ifthen}
 
+\usepackage{float}
+
+
 \hoffset=-5.4mm
 \voffset=-20.4mm
 \marginparwidth=00mm
@@ -18,6 +21,10 @@
 \footskip=10mm
 \setlength{\unitlength}{1mm}
 
+\usepackage{enumitem}
+\AddEnumerateCounter{\Asbuk}{\@Asbuk}{Ы}
+\AddEnumerateCounter{\asbuk}{\@asbuk}{ы}
+\setenumerate[1]{label=\thesubsubsection.\asbuk*}
 
 \usepackage{titlesec}
 \titlelabel{\thetitle.\quad}
@@ -37,8 +44,8 @@
 %}
 
 \def\ps@uspdluheadings{
-  \def\@oddfoot{\\{Литера <<О>>}}
-  \def\@evenfoot{\\{Литера <<О>>}}
+  %\def\@oddfoot{\\{Литера <<О>>}}
+  %\def\@evenfoot{\\{Литера <<О>>}}
   \let\@oddhead\@empty\let\@evenhead\@empty
   \let\@mkboth\@gobbletwo
   \let\sectionmark\@gobble
@@ -65,6 +72,7 @@
 \newcommand\stamp[1]{{
 \newpage
 \noindent\begin{picture}(0,0)(0,0)
+\put(0,-252){\framebox(180,252)}
 \put(-12,-252){\framebox(12,145)}
 \put(-7,-252){\line(0,1){145}}
 \put(-12,-142){\line(1,0){12}}
@@ -93,22 +101,17 @@
 \begin{center}
 
 % field 1, organization
-%{Московский Государственный Университет имени М. В. Ломоносова}
+{Министерство образования и науки Российской Федерации}
+
+\vskip 20mm
 
 % field 2, names and signatures
 \begin{tabular}{p{70mm}cp{70mm}}
-СОГЛАСОВАНО & & УТВЕРЖДЕНО \\
+& & УТВЕРЖДАЮ \\
 & & \\
-Зам. научного руководителя
-Программы <<СКИФ>> от РБ
-Зам. генерального директора
-по научной работе ОИПИ НАН Беларуси
-& &
-Научный руководитель
-Программы <<СКИФ>> от РФ
-Директор ИПС РАН \\
-\signfield{Анищенко~В.~В.} & & \signfield{Абрамов~С.~М.} \\
-\datefield & & \datefield \\
+& & К.Т.Н., доцент каф. АОИ\\
+& & \signfield{Сенченко~П.~В.} \\
+& & \datefield \\
 \end{tabular}
 
 \vskip 20mm
@@ -137,23 +140,10 @@
 \vskip 10mm
 
 % field 6, 
-\begin{tabular}{p{70mm}cp{70mm}}
-СОГЛАСОВАНО & & Пред\-ста\-ви\-те\-ли пред\-при\-я\-тия--раз\-ра\-бот\-чи\-ка ИПС РАН \\
-& & \\
-Исполнительный директор Программы <<СКИФ>> от РФ & & Ответственный исполнитель \\
-директор ИПС РАН & &
-Главный конструктор ПО КУ, ст.~научный сотрудник НИИ механики МГУ \\
-\signfield{Абрамов~С.~М.} & & \signfield{Роганов~В.~А.} \\
-\datefield & & \datefield \\
-& & \\
+\begin{tabular}{p{100mm}cp{70mm}}
 & & Исполнитель \\
-& & ведущий специалист МГУ \\
-& & \signfield{Слепухин~А.~Ф.} \\
-& & \datefield \\
-& & \\
-& & Нормоконтролер \\
-& & ОИПИ НАН Беларуси \\
-& & \signfield{Чернушевич~В.~Н.} \\
+& & студент гр. 424-1 кафедры АОИ \\
+& & \signfield{Рогазинский~А.~А.} \\
 & & \datefield \\
 \end{tabular}
 
@@ -173,9 +163,9 @@
 \vskip 10mm
 
 % field 1, organization
-%\begin{center}
-%{Московский Государственный Университет имени М. В. Ломоносова}
-%\end{center}
+\begin{center}
+{Министерство образования и науки Российской Федерации}
+\end{center}
 
 % field 2, names and signatures
 {}
@@ -204,6 +194,7 @@
 \end{center}
 
 % field 6, 
+
 
 % field 7, year
 \vfill
@@ -256,6 +247,5 @@
 \makeatletter
 \let\@uspdabstract\relax
 \newcommand\uspdabstract[1]{\def\@uspdabstract{#1}}
-\newenvironment{uspd}[1]{\sloppy\LU{#1}\TP{#1}\section*{Аннотация}\@uspdabstract\newpage\tableofcontents\newpage}{\uspd@LI}
+\newenvironment{uspd}[1]{\sloppy\LU{#1}\TP{#1}\newpage\tableofcontents\newpage}{\uspd@LI}
 \makeatother
-
