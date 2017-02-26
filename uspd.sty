@@ -1,5 +1,7 @@
 %% Copyright (c) Alexander V. Inyukhin, 2004.
 
+\newcommand{\No}{\textnumero}
+
 \usepackage{rotating}
 \usepackage{ifthen}
 
@@ -25,6 +27,8 @@
 \AddEnumerateCounter{\asbuk}{\@asbuk}{ы}
 \setenumerate[1]{label=\thesubsubsection.\asbuk*}
 
+\usepackage{pbox}
+
 \usepackage{titlesec}
 \titlelabel{\thetitle.\quad}
 \usepackage{caption}
@@ -32,6 +36,7 @@
 \captionsetup[table]{labelsep=dash}
 \usepackage{indentfirst}
 \setlength{\parindent}{8mm}
+
 
 %\def\ps@uspdliheadings{
 %  \let\@oddfoot\@empty\let\@evenfoot\@empty
